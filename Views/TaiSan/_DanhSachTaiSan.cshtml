@@ -1,0 +1,22 @@
+﻿@model IEnumerable<TranVanKiet_2026_2.Models.TaiSan>
+
+<div class="section-head">
+    <h3>@(ViewBag.SectionTitle ?? "Trần Văn Kiệt")</h3>
+    <a asp-controller="TaiSan" asp-action="Index">Xem tất cả &rsaquo;</a>
+</div>
+
+<div class="grid">
+    @foreach (var item in Model)
+    {
+        <div class="asset-card">
+            <a href="#"><img src="~/images/@item.Anh" alt="@item.TenTs" /></a>
+            <h2>@item.TenTs</h2>
+            <div class="asset-foot">
+                <span class="price">@item.NguyenGia tr</span>
+                <div>
+                    <a asp-controller="TaiSan" asp-action="Edit" asp-route-id="@item.MaTs" class="btn-buy" style="text-decoration:none;display:inline-block;">Sửa</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

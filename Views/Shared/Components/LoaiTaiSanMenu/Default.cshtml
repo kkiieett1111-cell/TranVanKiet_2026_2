@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TranVanKiet_2026_2.Models.LoaiTaiSan>
+
+<ul class="menu">
+    <li class="active">
+        <a href="javascript:void(0)" class="nav-filter" data-maloai="0">Trần Văn Kiệt</a>
+    </li>
+    @foreach (var loai in Model)
+    {
+        <li>
+            <a href="javascript:void(0)" class="nav-filter" data-maloai="@loai.MaLoai">@loai.TenLoai</a>
+        </li>
+    }
+</ul>

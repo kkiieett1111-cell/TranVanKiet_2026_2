@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TranVanKiet_2026_2.Models.TaiSan>
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div id="ajax-taisan-container">
+    @await Html.PartialAsync("_DanhSachTaiSan", Model)
+</div>
+
+@section Scripts {
+    <script>
+        $(document).on("click", ".nav-filter", function (e) {
+            e.preventDefault();
+            var maLoai = $(this).data("maloai");
+
+            $(".menu li").removeClass("active");
+            $(this).closest("li").addClass("active");
+
+            $.ajax({
+                url: '@Url.Action("FilterByLoai", "TaiSan")',
+                type: 'GET',
+                data: { maLoai: maLoai },
+                success: function (html) {
+                    $("#ajax-taisan-container").html(html);
+                },
+                error: function () {
+                    alert("Không thể lọc danh sách tài sản.");
+                }
+            });
+        });
+    </script>
+}

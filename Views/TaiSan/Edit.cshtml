@@ -1,0 +1,37 @@
+﻿@model TranVanKiet_2026_2.Models.TaiSan
+@{
+    ViewData["Title"] = "Sửa thông tin tài sản";
+}
+
+<div style="background:#fff;padding:28px 32px;border-radius:8px;max-width:600px;margin:28px auto;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+    <h3 style="color:#1d3f72;margin-bottom:20px;font-weight:700;">SỬA THÔNG TIN TÀI SẢN</h3>
+
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MaTs" />
+
+        <div style="margin-bottom:14px;display:flex;align-items:center;">
+            <label asp-for="MaLoai" style="width:160px;font-weight:600;">Loại tài sản</label>
+            <select asp-for="MaLoai" asp-items="ViewBag.MaLoai" style="flex:1;padding:8px;border:1px solid #cbd5e1;border-radius:4px;"></select>
+        </div>
+
+        <div style="margin-bottom:14px;display:flex;align-items:center;">
+            <label asp-for="TenTs" style="width:160px;font-weight:600;">Tên tài sản</label>
+            <input asp-for="TenTs" type="text" style="flex:1;padding:8px;border:1px solid #cbd5e1;border-radius:4px;" />
+        </div>
+
+        <div style="margin-bottom:14px;display:flex;align-items:center;">
+            <label asp-for="NguyenGia" style="width:160px;font-weight:600;">Nguyên giá (triệu)</label>
+            <input asp-for="NguyenGia" type="text" style="flex:1;padding:8px;border:1px solid #cbd5e1;border-radius:4px;" />
+        </div>
+
+        <div style="margin-bottom:20px;display:flex;align-items:center;">
+            <label asp-for="Anh" style="width:160px;font-weight:600;">Tên file ảnh</label>
+            <input asp-for="Anh" type="text" style="flex:1;padding:8px;border:1px solid #cbd5e1;border-radius:4px;" />
+        </div>
+
+        <div style="margin-left:160px;">
+            <button type="submit" style="padding:8px 18px;background:#1d3f72;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:600;">Save</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - TranVanKiet_2026_2</title>
+    <link href="~/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="~/js/jquery.min.js"></script>
+</head>
+<body>
+    @await Html.PartialAsync("_TranVanKiet_Header")
+    <main class="main" id="TranVanKiet_MainContent">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+    @await Html.PartialAsync("_TranVanKiet_Footer")
+
+    <script src="~/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
